@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <title>Mangata & Gallo</title>
+        <meta name="description" content="A brief description">
+        <meta name="author" content="Mangata&Gallo Store">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand">
+    </head>
+
+    <body>
+        <header>
+            <img src="/htnml css/Project/logos/Asset 1@3x.png">
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="stores.html">Stores</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="offer">
+                <img src="" alt="promo.png" height="453" width="100%" id="banner">
+                <div class="offer-text">
+                    <h1>Housewarming Gifts</h1>
+                    <p>Welcome home. More than just beautiful objects, our gifts for the home are where form, function and wit come together.</p>
+                    <a href="gifts.html" target=”_blank”>Shop Now</a>
+                </div>
+            </div>
+                <section>
+                <article>
+                    <figure>
+                        <a href="rings.html" target=”_blank”>
+                            <img class="displayed" src="rings.png" alt="rings.png" height="250">
+                        </a>
+                    </figure>
+                    <h1>
+                        <a href="rings.html" target=”_blank”>
+                            RINGS
+                        </a>
+                    </h1>
+                    <p>There’s more to Mangata & Gallo than our iconic engagement rings—why not choose a ring for every finger? 
+                        Mix gold, silver, platinum and diamond bands in a head-turning stack or style them side by side on each 
+                        finger for maximum impact. Engrave a gold signet ring, usually worn on your pinky, for a hero piece that 
+                        only gets better with time. Make your next bold statement a cocktail ring that gets everyone talking—colorful
+                         gemstones optional but highly recommended. When it comes to Mangata&Gallo rings, a full hand wins every time. </p>
+                </article>
+                <article>
+                    <figure>
+                        <a href="bracelets.html" target=”_blank”>
+                            <img class="displayed" src="bracelets.png" alt="bracelets.png" height="250">
+                        </a>
+                    </figure>
+                    <h1>
+                        <a href="bracelets.html" target=”_blank”>
+                            BRACELETS
+                        </a>
+                    </h1>
+                    <p>It’s all in the wrist. Our collection of bracelets features classic silhouettes and designs that push the
+                         boundaries of the imagination. Express your maximalist side with a strong stack that can’t help but turn 
+                         heads: a diamond tennis bracelet, chain link designs and polished bangles. If you want to make a powerful 
+                         yet pared back statement, try wearing a wide cuff on each wrist. For a subtle approach, a few delicate 
+                         styles in narrow widths always add up to something unexpected. When it comes to Mangata & Gallo bracelets, make
+                          your own style rules.   </p>
+                </article>
+                <article>
+                    <figure>
+                        <a href="necklaces.html" target=”_blank”>
+                            <img class="displayed" src="necklaces.png" alt="necklaces.png" height="250">
+                        </a>
+                    </figure>
+                    <h1>
+                        <a href="necklaces.html" target=”_blank”>
+                            NECKLACES
+                        </a>
+                    </h1>
+                    <p>The long and the short of it is, Mangata & Gallo. necklaces are the only finishing touch you need. 
+                        Keep your style simple with striking essentials you’ll wear every day, like a diamond pendant or 
+                        simple chain necklace that goes with everything. Add a long necklace or colorful gemstones the next
+                         time you want simple drama without trying. When you want to go all out, wear a mix of metals, lengths 
+                         and styles for a look that’s sure to strike up aconversation. From bold link chains to minimalist pendants,
+                          when it comes to Mangata & Gallo. necklaces, one is never enough.  </p>
+                </article>
+            </section>
+        
+        </main>
+
+        <footer>
+            <div>
+                <img src="/htnml css/Project/logos/Asset_2@3x.png" height="50">
+            </div>
+            <div>
+                <p>Copyright Mangata & Gallo</p>
+            </div>
+        </footer>
+
+        <script type="text/javascript">
+            const image = document.getElementById("banner");
+            const images = ["promo.png", "promo-2.png", "promo-3.png"];
+            setInterval(function(){
+            let random = Math.floor(Math.random() * 3);
+            image.src = images[random];
+            }, 800);
+        </script>
+    </body>
+</html>
