@@ -13,7 +13,7 @@
 
     <body>
         <header>
-            <img src="/htnml css/MangataGallo-Landing-Page/logos/Asset 1@3x.png">
+            <img src="logos/Asset 1@3x.png">
         </header>
 
         <nav>
@@ -27,18 +27,19 @@
 
         <main>
             <div class="offer">
-                <img src="" alt="promo.png" height="453" width="100%" id="banner">
-                <div class="offer-text">
+                <img src="images/promo.png" alt="promo.png" height="453" class="img-banner" id="banner1">
+                <img src="images/promo-2.png" alt="promo-2.png" height="453" class="img-banner" id="banner2">
+                <!-- <div class="offer-text">
                     <h1>Housewarming Gifts</h1>
                     <p>Welcome home. More than just beautiful objects, our gifts for the home are where form, function and wit come together.</p>
                     <a href="gifts.html" target=”_blank”>Shop Now</a>
-                </div>
+                </div> -->
             </div>
                 <section>
                 <article>
                     <figure>
                         <a href="rings.html" target=”_blank”>
-                            <img class="displayed" src="rings.png" alt="rings.png" height="250">
+                            <img class="displayed" src="images/rings.png" alt="rings.png" height="250">
                         </a>
                     </figure>
                     <h1>
@@ -55,7 +56,7 @@
                 <article>
                     <figure>
                         <a href="bracelets.html" target=”_blank”>
-                            <img class="displayed" src="bracelets.png" alt="bracelets.png" height="250">
+                            <img class="displayed" src="images/bracelets.png" alt="bracelets.png" height="250">
                         </a>
                     </figure>
                     <h1>
@@ -73,7 +74,7 @@
                 <article>
                     <figure>
                         <a href="necklaces.html" target=”_blank”>
-                            <img class="displayed" src="necklaces.png" alt="necklaces.png" height="250">
+                            <img class="displayed" src="images/necklaces.png" alt="necklaces.png" height="250">
                         </a>
                     </figure>
                     <h1>
@@ -94,20 +95,59 @@
 
         <footer>
             <div>
-                <img src="/htnml css/MangataGallo-Landing-Page/logos/Asset_2@3x.png" height="50">
+                <img src="logos/Asset_2@3x.png" height="50">
             </div>
             <div>
                 <p>Copyright Mangata & Gallo</p>
             </div>
         </footer>
 
-        <script type="text/javascript">
-            const image = document.getElementById("banner");
-            const images = ["promo.png", "promo-2.png", "promo-3.png"];
-            setInterval(function(){
-            let random = Math.floor(Math.random() * 3);
-            image.src = images[random];
-            }, 800);
+        <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+        <script>
+            const delays = ["-=0.5"];
+
+            const sliders = gsap.utils
+            .toArray("[class^='offer']")
+            .map((el, i) => createSlider(el, delays[0]));
+            
+            const sliderWrap = gsap.utils.wrap(sliders);
+
+            // set next slider on each slider object
+            // the last slider will point to the first slider, thus creating a loop
+            sliders.forEach((slider, i) => {
+            slider.next = sliderWrap(i + 1);
+            });
+
+            sliders[0].play();
+
+            function createSlider(element, delay) {
+                
+            const slides = [...element.querySelectorAll("img")];
+            const slideWrap = gsap.utils.wrap(slides);
+            let currentIndex = 0;
+            let currentSlide = slides[0];
+            
+            return {
+                next: null,
+                play() {
+                        
+                // cycle through slide targets
+                const prev = currentSlide;
+                currentSlide = slideWrap(++currentIndex);
+                
+                gsap.timeline({
+                    // call the next slider to play
+                    onComplete: () => this.next.play()
+                })
+                .to(prev, {
+                    opacity: 0,
+                })
+                .to(currentSlide, {
+                    opacity: 1, duration: 6
+                }, delay);
+                }
+            };  
+            }
         </script>
     </body>
 </html>
